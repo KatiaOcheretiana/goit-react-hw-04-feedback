@@ -1,13 +1,14 @@
+import { ButtonItem, ButtonField } from './Feedback.styled';
+
 export const Feedback = ({ options, onLeaveFeedback }) => {
   const items = Object.keys(options);
   return (
-    <div>
-      <h2>Please leave feedback</h2>
+    <ButtonField>
       {items.map(item => (
-        <button key={item} onClick={onLeaveFeedback}>
+        <ButtonItem key={item} onClick={onLeaveFeedback}>
           {item}
-        </button>
+        </ButtonItem>
       ))}
-    </div>
+    </ButtonField>
   );
 };
