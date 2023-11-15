@@ -16,6 +16,7 @@ code {
     monospace;
 }
 
+
 body,
 p,
 h1,
@@ -35,7 +36,6 @@ ol,
 ul {
   list-style: none;
 }
-
 
 img {
   display: block;
