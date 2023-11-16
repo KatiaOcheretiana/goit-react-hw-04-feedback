@@ -10,6 +10,12 @@ export const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  const opinion = {
+    good,
+    neutral,
+    bad,
+  };
+
   const handleBtnFeedback = selectedItem => {
     switch (selectedItem) {
       case 'good':
@@ -26,7 +32,9 @@ export const App = () => {
     }
   };
 
-  const countTotalFeedback = () => good + bad + neutral;
+  const countTotalFeedback = () => {
+    return Object.values(opinion).reduce((acc, value) => acc + value, 0);
+  };
 
   const countPositiveFeedbackPercentage = () => {
     const total = countTotalFeedback();
@@ -37,7 +45,7 @@ export const App = () => {
     <>
       <Section title="Please leave feedback">
         <Feedback
-          options={['good', 'neutral', 'bad']}
+          options={Object.keys(opinion)}
           onLeaveFeedback={handleBtnFeedback}
         />
       </Section>
